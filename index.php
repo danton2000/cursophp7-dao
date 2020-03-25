@@ -4,12 +4,20 @@ require_once("config.php");
 
 $sql = new Sql();
 
-// $usuarios = $sql->select("SELECT * FROM tb_usuarios");
+$usuarios = $sql->select("SELECT * FROM tb_usuarios");
+echo json_encode($usuarios);//mostra todos os usuarios
 
-// echo json_encode($usuarios);//mostra todos os usuarios
+// $root = new Usuario();
+// $root->loadById(5);MOSTRA UM USUARIO ESPECIFICO
+//echo $root;
 
-$root = new Usuario();
+// $lista = Usuario::getList();//por que o metodo é estatico
+// echo json_encode($lista);CARREGA UM LISTA DE USUARIOS
 
-$root->loadById(5);
+// $search = Usuario::search("D");
+// echo json_encode($search);PROCURA O USUÁRIO PELO LOGIN
 
-echo $root;
+// $usuario = new Usuario();
+// $usuario->login("Danton", "123");
+// echo $usuario;
+

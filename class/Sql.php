@@ -10,11 +10,12 @@ class Sql extends PDO {//extendo da classe nativa do php PDO(bind->param, execut
 
     private function setParams($statement, $parameters = array()){
         foreach ($parameters as $key => $value) {
+            
             $this->setParam($statement, $key, $value);
         }
     }
 
-    public function setParam($statement, $key, $value){
+    private function setParam($statement, $key, $value){
         $statement->bindParam($key, $value);
 
     }
@@ -28,7 +29,7 @@ class Sql extends PDO {//extendo da classe nativa do php PDO(bind->param, execut
 
     public function select($rawQuery, $params = array()):array{
         $stmt = $this->query($rawQuery, $params);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);//vim só os dados associativos sem os index dos numeros
     }
 
 }
