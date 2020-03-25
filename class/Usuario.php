@@ -39,7 +39,7 @@ class Usuario {
         $this->dtcadastro = $value;
     }
 
-    public function loadById($id){
+    public function loadById($id){//CARREGUE PELO ID
 
         $sql = new Sql();
 
@@ -105,13 +105,11 @@ class Usuario {
 
     public function __toString(){
 
-        return json_encode(array(
-
-            'idusuario'=>$this->getIdusuario(),
-            'deslogin'=>$this->getDeslogin(),
-            'dessenha'=>$this->getDessenha(),
-            'dtcadastro'=>$this->getDtcadastro()->format("d/m/Y H:i:s")
-
+        return json_encode(array(//NOMES QUE SERÃO EXIBIDOS
+            "idusuario"=>$this->getIdusuario(),
+            "deslogin"=>$this->getDeslogin(),
+            "dessenha"=>$this->getDessenha(),
+            "dtcadastro"=>$this->getDtcadastro()->format("d/m/Y H:i:s")
         ));
 
     }
