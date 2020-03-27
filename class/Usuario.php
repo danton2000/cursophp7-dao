@@ -49,12 +49,7 @@ class Usuario {
 
         if (count($results) > 0){
 
-            $row = $results[0];
-
-            $this->setIdusuario($row['idusuario']);
-            $this->setDeslogin($row['deslogin']);
-            $this->setDessenha($row['dessenha']);
-            $this->setDtcadastro(new DateTime($row['dtcadastro']));
+            $this->setData($results[0]);
 
         }
 
@@ -89,18 +84,42 @@ class Usuario {
 
         if (count($results) > 0){
 
-            $row = $results[0];
-
-            $this->setIdusuario($row['idusuario']);
-            $this->setDeslogin($row['deslogin']);
-            $this->setDessenha($row['dessenha']);
-            $this->setDtcadastro(new DateTime($row['dtcadastro']));
+            $this->setData($results[0]);
 
         } else {
             throw new Exception("Login ou Senha Inválidos");
             
         }
 
+    }
+
+    public function setData($data){
+
+        $this->setIdusuario($data['idusuario']);
+        $this->setDeslogin($data['deslogin']);
+        $this->setDessenha($data['dessenha']);
+        $this->setDtcadastro(new DateTime($data['dtcadastro']));
+
+    }
+
+    public function insert(){
+
+        $sql = new Sql();
+                                //PROCEDURES
+        $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(//sp = STORED PROCEDURES.
+        ":LOGIN"=>$this->getDeslogin(),
+        ":PASSWORD"=>$this->getDessenha()
+        ));
+
+        if (count($results) > 0) {
+            $this->setData($results[0]);
+        }
+
+    }
+
+    public function __construct($login = "", $password = ""){
+        $this->setDeslogin($login);
+        $this->setDessenha($password);
     }
 
     public function __toString(){

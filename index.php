@@ -16,7 +16,11 @@ require_once("config.php");
 // $search = Usuario::search("Danton");//por que o metodo é estatico não precisa instanciar o objeto(como não tinha o $this no metodo search usamos o método estatico)NÃO USAR O ESTÁTICO QUANDO A MÉTODO ESTIVER AMARRADA NA CLASSE. 
 // echo json_encode($search);//PROCURA O USUÁRIO PELO LOGIN
 
-$usuario = new Usuario();//carrega um usuário usando o login e a senha
-$usuario->login("Danton", "123");
-echo $usuario;
+// $usuario = new Usuario();//carrega um usuário usando o login e a senha
+// $usuario->login("Danton", "123");
+// echo $usuario;
+
+$aluno = new Usuario("aluno-danton", "aluno123");
+$aluno->insert();
+echo $aluno;
 
