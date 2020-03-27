@@ -60,7 +60,7 @@ class Usuario {
 
     }
 
-    public static function getList(){
+    public static function getList(){//LISTAR TODOS metodo estático
 
         $sql = new Sql();
 
@@ -68,7 +68,7 @@ class Usuario {
 
     }
 
-    public static function search($login){
+    public static function search($login){//LISTAR USUÁRIO ESPECIFICO metodo estático
 
         $sql = new Sql();
 
@@ -78,7 +78,7 @@ class Usuario {
 
     }
 
-    public function login($login, $password){
+    public function login($login, $password){//procurar usuário autenticado
 
         $sql = new Sql();
 
