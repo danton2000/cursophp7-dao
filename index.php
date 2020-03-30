@@ -24,11 +24,13 @@ require_once("config.php");
 // $aluno->insert();
 // echo $aluno;//INSERE UM USUÁRIO NO BANCO
 
-$usuario = new Usuario();
+// $usuario = new Usuario();
+// $usuario->loadById(3);
+// $usuario->update("professor", "321");
+// echo $usuario;//ALTERA UM USUARIO
 
-$usuario->loadById(3);
-
-$usuario->update("professor", "321");
-
-echo $usuario;
+// $usuario = new Usuario();
+// $usuario->loadById(3);
+// $usuario->delete();
+// echo $usuario;//DELETE UM USUÁRIO
 
