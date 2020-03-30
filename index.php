@@ -20,7 +20,15 @@ require_once("config.php");
 // $usuario->login("Danton", "123");
 // echo $usuario;
 
-$aluno = new Usuario("aluno-danton", "aluno123");
-$aluno->insert();
-echo $aluno;
+// $aluno = new Usuario("aluno-danton", "aluno123");
+// $aluno->insert();
+// echo $aluno;//INSERE UM USUÁRIO NO BANCO
+
+$usuario = new Usuario();
+
+$usuario->loadById(3);
+
+$usuario->update("professor", "321");
+
+echo $usuario;
 
